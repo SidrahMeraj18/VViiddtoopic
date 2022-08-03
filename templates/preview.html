@@ -1,0 +1,138 @@
+{% load static %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" >
+<style>
+html {
+	 background: #000;
+}
+ p, input, a, i, li, td, th {
+	 font-family: arial;
+	 font-size: 22px;
+}
+ div.input-area {
+	 border-width: 0 0 2px 0;
+	 border-color: #76a9fc;
+	 border-style: solid;
+	 cursor: text;
+	 margin: 15px;
+	 padding: 5px;
+	 width: 1000px;
+}
+ div.input-area input {
+	 background: rgb(231, 222, 222);
+	 border: none;
+	 color: #76a9fc;
+	 outline: none;
+}
+ div.input-area input::-webkit-input-placeholder {
+	/* Chrome/Opera/Safari */
+	 color: #76a9fc;
+	 font-family: arial;
+	 font-size: 22px;
+}
+ div.input-area input::-moz-placeholder {
+	/* Firefox 19+ */
+	 color: #76a9fc;
+}
+ div.input-area input:-ms-input-placeholder {
+	/* IE 10+ */
+	 color: #76a9fc;
+}
+ div.input-area input:-moz-placeholder {
+	/* Firefox 18- */
+	 color: #76a9fc;
+}
+ div.input-area p.keyword {
+	 background: #76a9fc;
+	 border-radius: 5px;
+	 display: inline-block;
+	 margin: 0 5px 0 0;
+	 padding: 3px;
+}
+ div.input-area p.keyword a.delete {
+	 cursor: pointer;
+	 margin: 0 3px;
+}
+ 
+</style>
+<video src="{{ obj.preview.url }}" height="100px" width="100px">
+    
+</video>
+<p>{{ obj.title }}</p>
+{% for message in messages %}
+				<p>{{ message }}</p>
+				{% endfor %}
+               <a href="{% url 'downloadsrt' driverFile=pathsrt %}" > downloadsrt</a>
+               <form method="post" id="kk">
+                   {% csrf_token %}
+                   <div class="input-area" id="divKeywords">
+                    <input type="text" id="txtInput" placeholder="Enter keyword..." name="keyword"/>
+                    <input type="text" id="hidden" name="key" style="display:none;" />
+
+                  </div>
+                  <button type="button" id="submitkeyword" onclick="submitkeey()">SUBMITTTTTTTT</button>
+                </form>
+<script src="{% static 'jquery.min.js' %}"> </script>
+<script>
+    var sub = $("#submitkeyword");
+    function submitkeey(){
+        console.log(allKeywords[0]);
+          $("#hidden").val(allKeywords.join(","));
+        
+       
+        $("#kk").submit();
+        //ky.submit();
+
+
+
+    }
+    //The entered keywords
+var allKeywords = []
+
+//Delete a keyword
+function deleteWord(element){
+  var index = allKeywords.indexOf($(element).parent('.keyword').text());
+  if(index !== -1){                                  
+    allKeywords.splice(index, 1);
+  }
+  $(element).parent('.keyword').remove();
+}
+
+//Add a keyword
+function addWord(word){
+  if(word === undefined || word === ''){
+    return;
+  }
+  
+  allKeywords.push(word);
+  
+  $('#divKeywords > #txtInput').before($('<p class="keyword">' + word + '<a class="delete" onclick="deleteWord(this)"><i class="fa fa-times" aria-hidden="true"></i></a></p>'));
+  $('#txtInput').val('');
+  $('#txtInput').focus();
+}
+
+//On focus out, add word
+function addWordFromTextBox(){
+  var val = $('#txtInput').val();
+  if(val !== undefined && val !== ''){
+    addWord(val);
+  }
+}
+
+//On key press, check for , or ;
+function checkLetter(){
+  var val = $('#txtInput').val()
+  if(val.length > 0){
+    var letter = val.slice(-1);
+    if(letter === ',' || letter === ';'){
+      var word = val.slice(0,-1);
+      if(word.length > 0){
+        addWord(word);
+      }
+    }
+  }
+}
+
+$('#txtInput').blur(addWordFromTextBox);
+$('#txtInput').keyup(checkLetter);
+$('#divKeywords').click(function(){ $('#txtInput').focus(); });
+</script>

@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block content %}
+          
+
+            <section class="features section">
+                <div class="container">
+                    <form method="post"> {% csrf_token %}
+					<div class="features-inner section-inner has-bottom-divider">
+                        <div id="search" style="margin-bottom: 50px;">
+                            <input class="search__input" name="search" value="{{ keyword }}" type="text" placeholder="Search">
+                        </div>
+                    </form>
+
+                    <br>
+                    <h6> Search Results: {{ keyword }} </h6>
+                    <br>
+                        
+                        
+                        <div class="features-wrap">
+                            {% for obj in objs %}
+                            <div class="feature text-center is-revealing">
+                                <div class="feature-inner">
+                                    <div class="feature-video">
+                                        <video width="100%" height="100%" controls>
+                                            <source src="{{ obj.preview.url}}" type="video/mp4">
+                                          </video>
+                                    </div>
+                                   <a href="{% url 'preview' srt_id=obj.id %}"> <div class="feature-title">
+                                        <h6> {{ obj.title }}</h6>
+                                        <p> User: {{ obj.user }}</p>
+                                    </div> </a>
+                                    
+                                </div>
+                            </div>
+                            {% endfor %}
+							
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+
+            {% if not request.user.is_authenticated %}
+
+                <section class="cta section">
+                    <div class="container">
+                        <div class="cta-inner section-inner">
+                            <h3 class="section-title mt-0">Want to explore More Features ?</h3>
+                            <div class="cta-cta">
+                                <a class="button button-primary button-wide-mobile" href="{% url 'auth' %}">Login</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            {% endif %}
+
+            <script>
+                function chalo_chalo(){
+                    var user ='{{ request.user.is_authenticated }}';
+                    console.log(user);
+                    if(user  === "True"){
+                        window.location.href = "{% url 'uploadlink' %}";
+                    } else {
+                        var msg = document.getElementById("msg");
+                        msg.style.display = "block";
+                    }
+                }
+            </script>
+       {% endblock %}

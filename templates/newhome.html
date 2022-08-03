@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block content %}
+            <section class="hero">
+                <div class="container">
+                    <div class="hero-inner">
+						<div class="hero-copy">
+	                        
+                            
+	                        <p class="hero-paragraph">A tool with which you can reach exactly at the point where you desire in a video</p>
+	                        <div class="hero-cta"><button onclick="chalo_chalo()" class="button button-primary" style="border-color:white;"  >Generate SRT</button><button onclick="chalo_chalo()" class="button" >Generate Preview</button></div>
+                            <div class="hero-cta"><button onclick="chalo_chalo()" class="button" >Download & Trim</button><button onclick="chalo_chalo()" class="button button-primary" >Upload Link</button></div>
+                            <p id="msg"> Please Login to Use this Feature </p>
+						</div>
+						<div class="hero-figure anime-element">
+							<svg class="placeholder" width="528" height="396" viewBox="0 0 528 396">
+								<rect width="528" height="396" style="fill:transparent;" />
+							</svg>
+							<div class="hero-figure-box hero-figure-box-01" data-rotation="45deg"></div>
+							<div class="hero-figure-box hero-figure-box-02" data-rotation="-45deg"></div>
+							<div class="hero-figure-box hero-figure-box-03" data-rotation="0deg"></div>
+							<div class="hero-figure-box hero-figure-box-04" data-rotation="-135deg"></div>
+							<div class="hero-figure-box hero-figure-box-05"></div>
+							<div class="hero-figure-box hero-figure-box-06"></div>
+							<div class="hero-figure-box hero-figure-box-07"></div>
+							<div class="hero-figure-box hero-figure-box-08" data-rotation="-22deg"></div>
+							<div class="hero-figure-box hero-figure-box-09" data-rotation="-52deg"></div>
+							<div class="hero-figure-box hero-figure-box-10" data-rotation="-50deg"></div>
+						</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="features section">
+                <div class="container">
+                    <form method="post"> {% csrf_token %}
+					<div class="features-inner section-inner has-bottom-divider">
+                        <div id="search" style="margin-bottom: 50px;">
+                            <input class="search__input" name="search" type="text" placeholder="Search">
+                        </div>
+                    </form>
+                        
+                        
+                        <div class="features-wrap">
+                            {% for obj in objs %}
+                            <div class="feature text-center is-revealing">
+                                <div class="feature-inner">
+                                    <div class="feature-video">
+                                        <video width="100%" height="100%" controls>
+                                            <source src="{{ obj.preview.url}}" type="video/mp4">
+                                          </video>
+                                    </div>
+                                   <a href="{% url 'preview' srt_id=obj.id %}"> <div class="feature-title">
+                                        <h6> {{ obj.title }}</h6>
+                                        <p> User: {{ obj.user }}</p>
+                                    </div> </a>
+                                    
+                                </div>
+                            </div>
+                            {% endfor %}
+							
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+
+            {% if not request.user.is_authenticated %}
+
+                <section class="cta section">
+                    <div class="container">
+                        <div class="cta-inner section-inner">
+                            <h3 class="section-title mt-0">Want to explore More Features ?</h3>
+                            <div class="cta-cta">
+                                <a class="button button-primary button-wide-mobile" href="{% url 'auth' %}">Login</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            {% endif %}
+
+            <script>
+                function chalo_chalo(){
+                    var user ='{{ request.user.is_authenticated }}';
+                    console.log(user);
+                    if(user  === "True"){
+                        window.location.href = "{% url 'uploadlink' %}";
+                    } else {
+                        var msg = document.getElementById("msg");
+                        msg.style.display = "block";
+                    }
+                }
+            </script>
+       {% endblock %}

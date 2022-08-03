@@ -1,0 +1,358 @@
+
+
+.icoon {
+ 
+  /*top: -100px;*/
+  /*left: -30px;*/
+  /*right: 20px;*/
+  left: 20%;
+  margin-left: 50px;
+}
+
+.fa.fa-star {
+  
+  /*top: 100px;*/
+  left: 20%;
+  
+  /*bottom: 100px;*/
+}
+
+.ov {
+  
+  text-align: 100%;
+ 
+  left: 20%;
+  /*overflow: scroll;*/
+}
+
+.ov2 {
+  position: relative;
+  height: 50px;
+  /*color: var(--bs-pink);*/
+}
+
+
+
+.header {
+  
+  margin-top: 32px;
+  /*margin-right: 0px;*/
+  margin-left: 5px;
+  font-size: 20px;
+  color: #2240c2;
+  /*font: bold;*/
+  /*font-style: italic;*/
+}
+
+.fa.fa-user {
+  margin-top: 30px;
+ 
+ margin-left: 740px;
+  /*height: 200px;*/
+  font-size: 32px;
+  color:#2240c2;
+}
+
+.signup {
+  margin-left: 5px;
+  margin-top: 30px;
+  
+  
+
+  color: #2240c2;
+  font-size: 20px;
+}
+
+.fa.sign-in {
+  margin-left: 400px;
+  color:#2240c2;
+  
+  
+}
+
+.fa.fa-user-plus {
+  margin-top: 30px;
+  
+  
+
+  color:#2240c2
+
+  ;
+  font-size: 30px;
+  margin-left: 500px;
+}
+
+.search {
+  
+ position: relative;
+  /*align-self: center;*/
+  left: 420px;
+  top: -130px;
+  border-radius: 10px;
+  /*opacity: 10%;*/
+  color: var(--bs-gray-500);
+  border-style: solid;
+  border-color: #2240c2;
+  height: 60px;
+  width: 40%;
+}
+
+.fa.fa-search {
+  position: relative;
+  top: -126px;
+  left: 422px;
+  font-size: 25px;
+  color: rgb(243, 241, 247);
+  
+}
+
+.imagelogo {
+  height: 80px;
+  width: 122px;
+  
+  
+
+}
+.name {
+ 
+  /*font-size: 2px;*/
+  margin-top: 25px;
+  margin-left: 0px;
+  font-size: 35px;
+  color: #03031a;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.line {
+  position: relative;
+  top: -430px;
+  margin-left: 33%;
+  
+  font-size: 18px;
+  color: #03031a;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  
+}
+
+  
+ 
+
+.GS{
+  margin-top: 0px;
+  margin-left: 25px;
+  position: relative;
+  font-size: 20px;
+}
+
+.DT{
+ 
+  margin-left: 25px;
+  position: relative;
+  top:0px;
+  font-size: 20px;
+}
+
+.GP{
+  font-size: 20px;
+  margin-left: 25px;
+  position: relative;
+  
+}
+.UL{
+ 
+  margin-left: 25px;
+  position: relative;
+  font-size: 20px;
+ 
+}
+.borderDT{
+  position: relative;
+  top: 17px; 
+  border-radius: 5%;
+  background-color: #63d9ee93;
+  width: 220px;
+  margin-left: -499px;
+  height: 80px;
+}
+.borderGS{
+  position: relative;
+  margin-left: -500px;
+  margin-top: 100px;
+  height: 80px;
+ 
+  background-color: #63d9ee93;
+  width: 220px;
+  
+  
+  border-radius: 5%;
+}
+.borderGP{
+  
+  margin-left: -250px;
+  height: 80px;
+  margin-top: 100px;
+  position: relative;
+  border-radius: 5%;
+  background-color: #63d9ee93;
+  width: 220px;
+}
+.borderUL{
+  
+  position: relative;
+  border-radius: 5%;
+  background-color: #63d9ee93;
+  width: 220px;
+  margin-left: -218px;
+  height: 80px;
+  margin-top: 195px;
+
+}
+
+.div {
+  width: 100px;
+  height: 10px;
+  background-color: rgb(55, 208, 255);
+  position: relative;
+  animation-name: example;
+  animation-duration: 4s;
+  animation-iteration-count: 3;
+  border-radius: 10px;
+}
+
+@keyframes example {
+  0%   {background-color:blue; left:20px; top:-5px;}
+  25%  {background-color:palevioletred; left:1200px; top:-5px;}
+  50%  {background-color:rgb(43, 192, 130); left:1200px; top:150px;}
+  75%  {background-color:rgb(94, 58, 94); left:20px; top:150px;}
+  100% {background-color:rgb(221, 233, 111); left:20px; top:-10px;}
+}
+.button {
+  display: inline-block;
+  border-radius: 8px;
+  background-color: #0314268a;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  width: 200px;
+  transition: all 0.5s;
+  margin-left: 1000px;
+  cursor: pointer;
+  /* margin: 5px; */
+  margin-top: 350px;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+span{
+  font-weight:1000px;
+	margin: 0 0px;
+	line-height: .7;
+  
+  font-size: 30px;
+  
+	text-shadow: 0 0 2px rgba(0, 0, 0, .45);
+	animation: span 3s ease-in infinite alternate;
+}
+.main{
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+  
+  margin-left: -500px;
+ 
+	@media(max-width: 500px){ transform: scale(.65); }
+}
+.letter{
+  margin-top: -5px;
+	display: inline-flex;
+	height: 25px;
+	width: 20px;
+	/* border: 2.5px solid #FF1EAD; */
+	border: 2.35px solid rgb(255, 255, 255);
+	border-radius: 14px;
+	box-shadow:
+		0 0 2px rgba(0, 0, 0, .75),
+		inset 0 0 2px rgba(0, 0, 0, .45);
+    
+
+	animation: letter 3s ease-in-out infinite alternate;
+
+}
+@keyframes span {
+	0%,30%{ margin: 0 0px; }
+	70%,100%{ margin: 0 0px; }
+}
+@keyframes letter {
+	0%,30%{ width: 27px; }
+	70%,100%{ width: 30vw; }
+}
+/* Dropdown Button */
+.dropbtn {
+  background-color: #3498DB;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Dropdown button on hover & focus */
+.dropbtn:hover, .dropbtn:focus {
+  background-color: #38a1f6;
+}
+.myDropdown:hover {
+  background-color: #38a1f6;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #45a7f8;}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {display:block;}

@@ -1,0 +1,92 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Vid To Pick</title>
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,600" rel="stylesheet">
+    
+    <link rel="stylesheet" href="{% static 'dist/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'dist/css/customStyle.css' %}">
+    
+	<script src="https://unpkg.com/animejs@3.0.1/lib/anime.min.js"></script>
+    <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
+</head>
+<body class="is-boxed has-animations">
+    <div class="body-wrap">
+        <header class="site-header">
+            <div class="container">
+                <div class="site-header-inner">
+                    <div class="brand header-brand">
+                        <h1 class="m-0">
+							<a class="logo-div" href="{% url 'home' %}">
+								<img class="header-logo-image" src="{% static 'dist/icons/logo2.png' %}" style="width: 20%;" alt="Logo">
+                                <h6> Vid-To-Pick </h6>
+                            </a>
+                        </h1>
+                    </div>
+                    <div style="padding-left: 500px; z-index: 20;display: flex;">
+                        {% if home %}
+                        <a href="#search"> <img src="{% static 'dist/icons/search.png' %}" style="width: 50%;"></a>
+                        {% endif %}
+                    </div>
+                    <div style="z-index: 20;">
+                        {% if request.user.is_authenticated %}
+                        <ul class="menu cf">
+                            <li>
+                              <a style="display: flex;
+                              align-items: center;
+                              font-size: medium;"><img src="{% static 'dist/icons/person.png' %}" style="width: 35%;"> {{request.user.username}}</a>
+                              <ul class="submenu">
+                                <li><a href="{% url 'profile' %}">Profile</a></li>
+                                <li><a href="{% url 'favourites' %}">Favourites</a></li>
+                                <li><a href="{% url 'history' %}">History</a></li>
+                                <li><a href="{% url 'logout' %}">Logout</a></li>
+                              </ul>			
+                          </ul>
+                          {% else %}
+
+                          <a class="logo-div" href="{% url 'auth' %}"> <img src="{% static 'dist/icons/person.png' %}" style="width: 20%;"> <h6> Login </h6> </a>
+
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main>
+
+            {% block content %}
+
+            {% endblock %}
+
+        </main>
+
+        <footer class="site-footer">
+            <div class="container">
+                <div class="site-footer-inner">
+                    <div class="brand footer-brand">
+						<a href="{% url 'home' %}">
+							<img class="header-logo-image" src="{% static 'dist/icons/logo2.png' %}" alt="Logo">
+						</a>
+                    </div>
+                    <ul class="footer-links list-reset">
+                       
+                    </ul>
+                    <ul class="footer-social-links list-reset">
+                        
+                    </ul>
+                    <div class="footer-copyright">&copy; 2021 Vid-To-Pick, All Rights Reserved</div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="{% static 'dist/js/main.min.js' %}"></script>
+    <script src="{% static 'dist/js/jquery.min.js' %}"></script>
+    <script src="{% static 'dist/js/main.js' %}"></script>
+</body>
+</html>

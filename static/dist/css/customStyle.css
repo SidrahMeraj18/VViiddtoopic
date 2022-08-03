@@ -1,0 +1,300 @@
+.logo-div{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+.logo-div h6{
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+    /* font-size: medium; */
+}
+
+.search__input {
+    width: 100%;
+    padding: 12px 24px;
+
+    background-color: transparent;
+    transition: transform 250ms ease-in-out;
+    font-size: 14px;
+    line-height: 18px;
+    
+    color: #dfdfdf;
+    background-color: transparent;
+/*         background-image: url(http://mihaeltomic.com/codepen/input-search/ic_search_black_24px.svg); */
+
+  background-image: url("../icons/search.png");
+    background-repeat: no-repeat;
+    background-size: 18px 18px;
+    background-position: 95% center;
+    border-radius: 50px;
+    border: 1px solid #dddddd;
+    transition: all 250ms ease-in-out;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+}
+
+.search__input::placeholder {
+        color: rgba(182, 182, 182, 0.8);
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+    }
+
+.search__input:hover,
+    .search__input:focus {
+        padding: 12px 0;
+        outline: 0;
+        border: 1px solid transparent;
+        border-bottom: 1px solid #575756;
+        border-radius: 0;
+        background-position: 100% center;
+    }
+.hero-cta{
+    margin-bottom: 16px;
+}
+.feature-inner{
+    border: 1px solid;
+    border-radius: 20px;
+}
+.feature-video{
+    height: 60%;
+}
+.feature-title{
+    height: 30%;
+    padding-bottom: 3%;
+}
+.feature-title *{
+  margin-top: 0px;
+  margin-bottom: 5px;
+}
+.feature-title div {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.header{
+    background-color: #575756;
+    padding: 10px;
+    padding-left: 25px;
+    border-radius: 5px;
+}
+.header h6{
+    margin-top: 0px;
+}
+.main-part{
+    display: flex;
+    justify-content: center;
+}
+.main-part input{
+    border-radius: 5px;
+    background-color: #1D2026;
+    padding: 5px 20px;
+    color: white;
+}
+
+.btn-cont{
+    display: flex;
+    justify-content: end;
+}
+.main-head{
+    margin-bottom: 50px;
+}
+.main-head h4{
+    font-weight: 300;
+}
+#msg{
+    display: none;
+    font-size: medium;
+    color: white;
+    font-weight: 100;
+}
+/* Clearing floats */
+.cf:before,
+.cf:after {
+  content: " ";
+  display: table;
+}
+
+.cf:after {
+  clear: both;
+}
+
+.cf {
+  *zoom: 1;
+}
+
+/* Mini reset, no margins, paddings or bullets */
+.menu,
+.submenu {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Main level */
+.menu {			
+  margin: 0px auto;
+  width: 800px;
+  /* http://www.red-team-design.com/horizontal-centering-using-css-fit-content-value */
+  width: -moz-fit-content;
+  width: -webkit-fit-content;
+  width: fit-content;	
+}
+
+.menu > li {
+  background: #34495e;
+  float: left;
+  position: relative;
+  transform: skewX(25deg);
+}
+
+.menu a {
+  display: block ;
+  color: #fff !important;
+  text-transform: uppercase;
+  text-decoration: none !important;
+  font-family: Arial, Helvetica;
+  font-size: 14px ;
+}		
+
+.menu li:hover {
+  background: #09377c;
+}		
+
+.menu > li > a {
+  transform: skewX(-25deg);
+  padding: 1em 2em;
+}
+
+/* Dropdown */
+.submenu {
+  position: absolute;
+  width: 200px;
+  left: 50%; margin-left: -100px;
+  transform: skewX(-25deg);
+  transform-origin: left top;
+}
+
+.submenu li {
+  background-color: #34495e;
+  position: relative;
+  overflow: hidden;		
+}						
+
+.submenu > li > a {
+  padding: 1em 2em;			
+}
+
+.submenu > li::after {
+  content: '';
+  position: absolute;
+  top: -125%;
+  height: 100%;
+  width: 100%;			
+  box-shadow: 0 0 50px rgba(0, 0, 0, .9);			
+}		
+
+/* Odd stuff */
+.submenu > li:nth-child(odd){
+  transform: skewX(-25deg) translateX(0);
+}
+
+.submenu > li:nth-child(odd) > a {
+  transform: skewX(25deg);
+}
+
+.submenu > li:nth-child(odd)::after {
+  right: -50%;
+  transform: skewX(-25deg) rotate(3deg);
+}				
+
+/* Even stuff */
+.submenu > li:nth-child(even){
+  transform: skewX(25deg) translateX(0);
+}
+
+.submenu > li:nth-child(even) > a {
+  transform: skewX(-25deg);
+}
+
+.submenu > li:nth-child(even)::after {
+  left: -50%;
+  transform: skewX(25deg) rotate(3deg);
+}
+
+/* Show dropdown */
+.submenu,
+.submenu li {
+  opacity: 0;
+  visibility: hidden;			
+}
+
+.submenu li {
+  transition: .2s ease transform;
+}
+
+.menu > li:hover .submenu,
+.menu > li:hover .submenu li {
+  opacity: 1;
+  visibility: visible;
+}		
+
+.menu > li:hover .submenu li:nth-child(even){
+  transform: skewX(25deg) translateX(15px);			
+}
+
+.menu > li:hover .submenu li:nth-child(odd){
+  transform: skewX(-25deg) translateX(-15px);			
+}
+.theHead{
+    display: flex;
+    align-items: center;
+}
+.theHead img {
+    width: 30px;
+}
+
+#divKeywords.input-area {
+    border-width: 0 0 2px 0;
+    border-color: #76a9fc;
+    border-style: solid;
+    cursor: text;
+    margin: 15px;
+    padding: 5px;
+    width: 1000px;
+}
+#divKeywords.input-area input {
+    background: transparent;
+    border: none;
+    color: #76a9fc;
+    outline: none;
+}
+#divKeywords.input-area input::-webkit-input-placeholder {
+   /* Chrome/Opera/Safari */
+    color: #76a9fc;
+    font-family: arial;
+    font-size: 22px;
+}
+#divKeywords.input-area input::-moz-placeholder {
+   /* Firefox 19+ */
+    color: #76a9fc;
+}
+#divKeywords.input-area input:-ms-input-placeholder {
+   /* IE 10+ */
+    color: #76a9fc;
+}
+#divKeywords.input-area input:-moz-placeholder {
+   /* Firefox 18- */
+    color: #76a9fc;
+}
+#divKeywords.input-area p.keyword {
+    background: #76a9fc;
+    border-radius: 5px;
+    display: inline-block;
+    margin: 0 5px 0 0;
+    color: white;
+    padding: 6px 15px;
+}
+#divKeywords.input-area p.keyword a.delete {
+    cursor: pointer;
+    margin: 0 3px;
+}

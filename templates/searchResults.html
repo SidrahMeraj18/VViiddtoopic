@@ -1,0 +1,415 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<section class="features section">
+    <div class="container">
+        
+        <div class="features-inner section-inner has-bottom-divider">
+            <div class="header" style="margin-bottom: 50px;">
+                <h6 class="theHead"> Upload Link <img src="{% static 'icons/righty.png' %}" /> Preview Video <img src="{% static 'icons/righty.png' %}" /> Search Results </h6>
+            </div>
+            <h6>Title: {{ obj.title }} </h6>
+            <div class="main-part">
+
+                
+                <div>
+                    <div class="main-head">
+                        <h4> The Keywords are Highlighted in the Video </h4>
+                    </div>
+
+                    
+                    <br>
+
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+   <style>
+    section.range-slider {
+        position: relative;
+        width: 300px;
+        height: 300px;
+        float: left;
+        text-align: center;
+   }
+    section.range-slider input[type="range"] {
+        pointer-events: none;
+        position: absolute;
+        -webkit-appearance: none;
+        -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+        border: none;
+        border-radius: 14px;
+        background: #f1efef;
+        box-shadow: inset 0 1px 0 0 #cdc6c6, inset 0 -1px 0 0 #d9d4d4;
+        -webkit-box-shadow: inset 0 1px 0 0 #cdc6c6, inset 0 -1px 0 0 #d9d4d4;
+        overflow: hidden;
+        left: 0;
+        top: 50px;
+        width: 300px;
+        outline: none;
+        height: 20px;
+        margin: 0;
+        padding: 0;
+   }
+    section.range-slider input[type="range"]::-webkit-slider-thumb {
+        pointer-events: all;
+        position: relative;
+        z-index: 1;
+        outline: 0;
+        -webkit-appearance: none;
+        width: 7px;
+        height: 20px;
+        border: none;
+        border-radius: 14px;
+        background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #dad8da), color-stop(100%, #413f41));
+       /* android <= 2.2 */
+        background-image: -webkit-linear-gradient(top, #dad8da 0, #413f41 100%);
+       /* older mobile safari and android > 2.2 */
+        background-image: linear-gradient(to bottom, #dad8da 0, #413f41 100%);
+       /* W3C */
+   }
+    section.range-slider input[type="range"]::-moz-range-thumb {
+        pointer-events: all;
+        position: relative;
+        z-index: 10;
+        -moz-appearance: none;
+        width: 20px;
+        height: 20px;
+        border: none;
+        box-sizing: border-box;
+        border-radius: 14px;
+        background-image: linear-gradient(to bottom, #dad8da 0, #413f41 100%);
+       /* W3C */
+   }
+    section.range-slider input[type="range"]::-ms-thumb {
+        pointer-events: all;
+        position: relative;
+        z-index: 10;
+        -ms-appearance: none;
+        width: 20px;
+        height: 20px;
+        border-radius: 14px;
+        border: 0;
+        box-sizing: border-box;
+        background-color: rgb(134, 17, 17);
+        background-image: linear-gradient(to bottom, #dad8da 0, #413f41 100%);
+       /* W3C */
+   }
+    section.range-slider input[type=range]::-moz-range-track {
+        position: relative;
+        z-index: -1;
+        background-color: rgba(0, 0, 0, 1);
+        border: 0;
+   }
+    section.range-slider input[type=range]:last-of-type::-moz-range-track {
+        -moz-appearance: none;
+        background: none transparent;
+        border: 0;
+   }
+    section.range-slider input[type=range]::-moz-focus-outer {
+        border: 0;
+   }
+      .green{
+         background-color: green !important;
+      }
+      .yellow{
+         background-color: yellow !important;
+      }
+      .blue{
+         background-color: blue !important;
+      }
+      .red{
+         background-color: red !important;
+      }
+      p {
+         background-color: #eee;
+         border: thin solid #777;
+         padding: 10px;
+      }
+      ul#marker-list{
+         list-style-type: none;
+         margin: 0;
+         padding: 0;
+         width: 300px;
+         margin-top: 10px;
+      }
+
+      ul#marker-list li{
+         position: relative;
+         margin-bottom: -1px;
+         background-color: transparent;
+         border: 1px solid transparent;
+      }
+      ul#marker-list li:last-child {
+         margin-bottom: 0;
+         border-bottom-right-radius: 4px;
+         border-bottom-left-radius: 4px;
+      }
+      ul#marker-list li a{
+         display: block;
+         padding: 10px 15px;
+         color: white;
+         text-decoration: none;
+      }
+      ul#marker-list li a:hover {
+         color: #555;
+         text-decoration: none;
+         background-color: #f5f5f5;
+      }
+   </style>
+   <link href="http://vjs.zencdn.net/4.3/video-js.css" rel="stylesheet">
+   <link href="{% static 'clr/dist/videojs.markers.css' %}" rel="stylesheet">
+
+  <video id="test_video" controls preload="none" class="video-js vjs-default-skin vjs-big-play-centered" width="100%" height="464"; style="border: 2px solid white; border-radius: 15px;">
+      <source src="{{obj.video.url}}" type="video/mp4">
+  </video>
+  <br><br>
+  <section class="range-slider" style="margin-bottom:50px;width:100%">
+    <input class="sliders" value='10' min='0' step='0.1' type='range' style='width:100%;margin-left:13px;' >
+     <input class="sliders" value='500' min='0'  step='0.1' type='range' style='width:100%;margin-left:13px;' >
+    
+    
+    <div  style="margin-top: 100px !important; margin:auto;width: 400px;background-color: #3292cf; color:#ffffff;border-radius: 10px;height: 50px;">
+      <div class="rangeValues" ></div>start---------end
+    
+  </div>
+  <br><br>
+   <button type="button" style="margin-bottom:100px" onclick="doTheTrim()" class="btn btn-primary">Download Trim</button>
+   <button onclick="window.location.href = '{% url 'show_srt' srt_id=obj.id %}'" type="button" style="margin-bottom:100px" class="btn btn-primary">View SRT</button>
+   <button onclick="window.location.href = '{% url 'downloadsrt' driverFile=pathsrt %}'" type="button" style="margin-bottom:100px" class="btn btn-primary">Download SRT</button>
+   <button onclick="window.location.href = '{% url 'preview' srt_id=obj.id %}'" type="button" style="margin-bottom:100px" class="btn btn-primary">Search More Keywords</button>
+
+
+    </section>
+  <br><br>
+  <ul id='marker-list' style="margin-top:260px !important;background-color:transparent; margin: auto; font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
+   <li><h2 class="display-5" style="text-align: center; background-color: black; color: white;">Key<b>Words</b></h2></li>
+  </ul>
+</div>
+<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+<script src="http://vjs.zencdn.net/4.3/video.js"></script>
+<script src="{% static 'clr/dist/videojs-markers.js' %}"></script>
+
+<script>
+    function doTheTrim(){
+        var start_e = $('.sliders').eq(0).val();
+        var end_e = $('.sliders').eq(1).val();
+        window.location.href = `/srtgen/downloadVideo/{{ obj.id }}/${start_e}/${end_e}`;
+    }
+   // initialize video.js
+   var player = videojs('test_video');
+   // this dictiory in list is coming from WIAS python.
+   // format should be like : [[{},{},{},..]]
+   var pydict = {{ search_results | safe }};
+   console.log(pydict);
+
+var mark = [];
+
+// this is done statically beacuse we can search maximun 4 elements one time
+
+   if (pydict.length ==1) {
+       // for 1st query
+      var pydict0 = pydict[0];
+      pydict0.forEach(object => {
+      object.class = 'blue';
+   });
+   mark.push(pydict0)
+   }
+   else if (pydict.length ==2) {
+   // for 1st query
+   var pydict0 = pydict[0];
+   pydict0.forEach(object => {
+      object.class = 'blue';
+   });
+   // for second query
+   var pydict1 = pydict[1];
+   pydict1.forEach(object => {
+      object.class = 'red';
+   });      
+   mark.push(pydict0,pydict1)
+   }
+   else if (pydict.length == 3) {
+   // for 1st query
+   var pydict0 = pydict[0];
+   pydict0.forEach(object => {
+      object.class = 'blue';
+   });
+   // for second query
+   var pydict1 = pydict[1];
+   pydict1.forEach(object => {
+      object.class = 'red';
+   });   
+      // for third query
+      var pydict2 = pydict[2];
+      pydict2.forEach(object => {
+      object.class = 'green';
+   });
+   mark.push(pydict0,pydict1,pydict2)
+
+   }
+else{
+   // for 1st query
+   var pydict0 = pydict[0];
+   pydict0.forEach(object => {
+      object.class = 'blue';
+   });
+   // for second query
+   var pydict1 = pydict[1];
+   pydict1.forEach(object => {
+      object.class = 'red';
+   });   
+   // for third query
+   var pydict2 = pydict[2];
+   pydict2.forEach(object => {
+   object.class = 'green';
+   });
+   // for fourth query
+   var pydict3 = pydict[3];
+   pydict3.forEach(object => {
+   object.class = 'yellow';
+   });
+   mark.push(pydict0,pydict1,pydict2,pydict3)
+   }
+
+// end of if wlse statement
+
+   mark = [].concat.apply([], mark);
+
+   console.log(mark);
+
+   var markers = mark;
+   
+   //load the marker plugin
+   player.markers({
+      markerTip:{
+         display: true,
+         text: function(marker){
+            return marker.text;
+         }
+      },
+      breakOverlay:{
+         display: true,
+         displayTime: 3,
+         text: function(marker) {
+            return "Searched Keyword: " + marker['content'];
+         }
+      },
+      onMarkerReached: function(marker) {
+        console.log(marker);
+      },
+      markers: markers
+   });
+
+   
+   $(document).ready(function(){
+      // insert marker list
+      for(var i =0; i < markers.length; i++){
+         console.log(markers[i]["content"]);
+         var item = $("<li data-index='"+i+"'><a href='#'>"+markers[i]['content']+"</a></li>")
+         $(item).css("border-color",""+markers[i].class+"");
+         $(item).css({"backgroundColor" : "black"});
+         console.log("itemmmmm",item);
+         $("#marker-list").append(item);
+      }
+
+      // set up click event
+      $("#marker-list li").click(function(){
+         var index = $(this).data("index");
+
+         player.currentTime(markers[index].time);
+      });
+
+      lala();
+
+   });
+
+   function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+  }
+  
+  // Close the dropdown menu if the user clicks outside of it
+  window.onclick = function(event) {
+    if (!event.target.matches('.dropbtn')) {
+      var dropdowns = document.getElementsByClassName("dropdown-content");
+      var i;
+      for (i = 0; i < dropdowns.length; i++) {
+        var openDropdown = dropdowns[i];
+        if (openDropdown.classList.contains('show')) {
+          openDropdown.classList.remove('show');
+        }
+      }
+    }
+  }
+ 
+   function getVals(){
+       
+   // Get slider values
+   var parent = this.parentNode;
+   var slides = parent.getElementsByTagName("input");
+     var slide1 = parseInt( slides[0].value );
+     var slide2 = parseInt( slides[1].value );
+     
+   // Neither slider will clip the other, so make sure we determine which is larger
+   if( slide1 > slide2 ){ var tmp = slide2; slide2 = slide1; slide1 = tmp; }
+   
+   var displayElement = parent.getElementsByClassName("rangeValues")[0];
+   
+   var h = Math.floor(slide1 / 3600).toString().padStart(2,'0'),
+         m = Math.floor(slide1 % 3600 / 60).toString().padStart(2,'0'),
+         s = Math.floor(slide1 % 60).toString().padStart(2,'0');
+         var h2 = Math.floor(slide2 / 3600).toString().padStart(2,'0'),
+         m2 = Math.floor(slide2 % 3600 / 60).toString().padStart(2,'0'),
+         s2 = Math.floor(slide2 % 60).toString().padStart(2,'0');
+ 
+       displayElement.innerHTML =  h+":"+ m+":"+ s + " ----- " +h2+":"+ m2+":"+ s2 ;
+ }
+ 
+ function lala(){
+   //var myVideoPlayer = document.getElementById('theVideo');
+     //var meta = document.getElementById('meta');
+ 
+ // myVideoPlayer.addEventListener('loadedmetadata', function () {
+     var duration = {{ obj.duration | safe }};  //myVideoPlayer.duration;
+     console.log(duration);
+     var slider = document.getElementsByClassName('sliders');
+     for (var i=0; i<slider.length; i++){
+       
+       slider[i].setAttribute("max",duration);
+     }
+        
+                             
+ // });
+   
+   // Initialize Sliders
+   var sliderSections = document.getElementsByClassName("range-slider");
+       for( var x = 0; x < sliderSections.length; x++ ){
+         var sliders = sliderSections[x].getElementsByTagName("input");
+         for( var y = 0; y < sliders.length; y++ ){
+           if( sliders[y].type ==="range" ){
+             sliders[y].oninput = getVals;
+             // Manually trigger event first time to display values
+             sliders[y].oninput();
+           }
+         }
+       }
+ };
+ 
+ function sleep (time) {
+   return new Promise((resolve) => setTimeout(resolve, time));
+ }
+ sleep(500).then(() => {
+     // Do something after the sleep!
+     var myVideoPlayer = document.getElementById('video_player');
+     var meta = document.getElementById('meta');
+ 
+ // myVideoPlayer.addEventListener('loadedmetadata', function () {
+     var duration = myVideoPlayer.duration;
+     console.log(duration);
+     var slider = document.getElementsByClassName('sliders');
+     for (var i=0; i<slider.length; i++){
+       
+       slider[i].setAttribute("max",duration);}
+ });
+
+</script>
+
+{% endblock %}
